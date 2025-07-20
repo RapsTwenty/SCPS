@@ -78,6 +78,26 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    .how-to-play {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      margin-top: 60px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+    }
+    .how-to-play h2 {
+      color: #00afff;
+      text-align: center;
+    }
+    .how-to-play h3 {
+      color: #00ff88;
+    }
+    .how-to-play ol {
+      padding-left: 20px;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -92,6 +112,7 @@
   <div class="link-box">
     <a href="https://www.mediafire.com/file/9visobna53k26c3/SCPS+HOST.txt/file" target="_blank">Download VHost File</a>
     <a href="https://growsoft.cc/android.txt" target="_blank">Copy Ptunnel (Android)</a>
+    <a href="https://growsoft.cc/ios.txt" target="_blank">IOS Copy File</a>
     <h3>Copy ke Windows Host File:</h3>
     <pre id="windows-ip">
 91.134.85.13 growtopia1.com
@@ -100,6 +121,44 @@
 91.134.85.13 www.growtopia2.com
 <button class="copy-btn" onclick="copyText()">Copy</button>
     </pre>
+  </div>
+
+  <div class="how-to-play">
+    <h2>How To Play</h2>
+
+    <h3>Android</h3>
+    <ol>
+      <li>Download SCPS HOST.</li>
+      <li>Buka aplikasi Virtual Host.</li>
+      <li>Klik "RE-SELECT HOSTS FILE".</li>
+      <li>Cari file SCPS HOST.txt yang sudah kamu download dan klik.</li>
+      <li>Pastikan lingkaran menyala hijau.</li>
+      <li>Sekarang kamu bisa login ke Growtopia!</li>
+    </ol>
+    <p><strong>Name Server:</strong> SCPS</p>
+
+    <h3>Windows</h3>
+    <ol>
+      <li>Tekan ⊞ Win+R untuk membuka jendela "Run".</li>
+      <li>Ketik <code>C:\Windows\System32\drivers\etc</code>.</li>
+      <li>Temukan file bernama <code>hosts</code>.</li>
+      <li>Edit file "hosts" menggunakan Notepad.</li>
+      <li>Tambahkan IP di atas.</li>
+      <li>Simpan dan buka Growtopia.</li>
+    </ol>
+    <p><strong>Name Server:</strong> SCPS</p>
+
+    <h3>IOS</h3>
+    <ol>
+      <li>Unduh aplikasi "Surge 5" dari App Store.</li>
+      <li>Tekan "OK".</li>
+      <li>Klik "Default.conf".</li>
+      <li>Klik "IMPORT" > Download Profile from URL.</li>
+      <li>Masukkan URL dari tombol IOS host di atas lalu klik "OK" dan "Done".</li>
+      <li>Tekan "SETUP", lalu izinkan VPN configuration.</li>
+      <li>Buka Growtopia dan Connect!</li>
+    </ol>
+    <p><strong>Name Server:</strong> SCPS</p>
   </div>
 
   <script>
