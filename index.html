@@ -24,9 +24,16 @@
       overflow-x: hidden;
     }
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.2rem;
       margin-top: 40px;
       animation: rgbText 4s infinite;
+    }
+    .divider {
+      width: 100px;
+      height: 3px;
+      background: #00afff;
+      margin: 20px auto;
+      border-radius: 2px;
     }
     p {
       font-size: 1.15rem;
@@ -127,6 +134,14 @@
       color: #ffcc00;
       margin-bottom: 10px;
     }
+    .social-box h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: #ffcc00;
+      margin: 8px auto 0;
+    }
     .social-icons {
       display: flex;
       justify-content: center;
@@ -153,6 +168,8 @@
 </head>
 <body>
   <h1>SCPS Private Server</h1>
+  <div class="divider"></div>
+
   <p>Haloo Semuaanyaa! Selamat Datang Di <strong>SCPS Private Server!</strong><br>
   Di Sini kalian bisa bermain <strong>Growtopia Versi Private</strong> dengan fitur-fitur menarik dan banyak <strong>Custom Item</strong>!<br>
   Bergabunglah sekarang dan rasakan pengalaman mu di SCPS Private Server!</p>
@@ -215,7 +232,7 @@
   </div>
 
   <div class="social-box">
-    <h2>JOIN US</h2>
+    <h2>SERVER COMUNITY</h2>
     <div class="social-icons">
       <a href="https://www.instagram.com/jaboy_gt?igsh=MTZnd3Z5NzNhZjFpdw%3D%3D&utm_source=qr" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
