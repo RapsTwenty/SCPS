@@ -44,7 +44,7 @@
       font-weight: bold;
       margin-bottom: 30px;
     }
-    .link-box {
+    .link-box, .social-box {
       margin: 30px auto;
       padding: 20px;
       background: rgba(31, 31, 31, 0.9);
@@ -55,11 +55,11 @@
       transform: translateX(-50px);
       transition: all 1s ease-out;
     }
-    .link-box.show {
+    .link-box.show, .social-box.show {
       opacity: 1;
       transform: translateX(0);
     }
-    .link-box a {
+    .link-box a, .social-box a {
       color: #00afff;
       text-decoration: none;
       display: block;
@@ -112,6 +112,24 @@
     }
     .how-to-play ol {
       padding-left: 20px;
+    }
+    .social-box h2 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+    }
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -176,6 +194,21 @@
     <p><strong>Name Server:</strong> SCPS</p>
   </div>
 
+  <div class="social-box">
+    <h2>JOIN US</h2>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/jaboy_gt?igsh=MTZnd3Z5NzNhZjFpdw%3D%3D&utm_source=qr" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://chat.whatsapp.com/IMobcruMhZgAWUI1tjZIJT" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+      <a href="https://discord.gg/FChejVkZ" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+      </a>
+    </div>
+  </div>
+
   <script>
     function copyText() {
       const text = `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`;
@@ -193,7 +226,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.link-box, .how-to-play').forEach(el => {
+    document.querySelectorAll('.link-box, .how-to-play, .social-box').forEach(el => {
       observer.observe(el);
     });
   </script>
