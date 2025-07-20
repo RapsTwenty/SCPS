@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCPS Private Server</title>
   <style>
+    @keyframes rgbText {
+      0% { color: red; }
+      33% { color: lime; }
+      66% { color: deepskyblue; }
+      100% { color: red; }
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #121212);
       color: #fff;
       text-align: center;
@@ -16,16 +23,16 @@
       background-size: cover;
     }
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-top: 40px;
-      background: linear-gradient(to right, red, green, blue);
-      -webkit-background-clip: text;
-      color: transparent;
+      animation: rgbText 4s infinite;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       max-width: 700px;
       margin: 20px auto;
+      line-height: 1.6;
+      color: #f1f1f1;
     }
     .status {
       background: #00ff00;
@@ -72,10 +79,13 @@
       cursor: pointer;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>SCPS Private Server</h1>
-  <p>Selamat datang di server private SCPS GTPS! Di sini kamu bisa bermain Growtopia versi private dengan fitur-fitur menarik dan update stabil. Bergabunglah sekarang dan rasakan pengalaman serunya dunia SCPS GTPS!</p>
+  <p>Haloo Semuaanyaa! Selamat Datang Di <strong>SCPS Private Server!</strong><br>
+  Di Sini kalian bisa bermain <strong>Growtopia Versi Private</strong> dengan fitur-fitur menarik dan banyak <strong>Custom Item</strong>!<br>
+  Bergabunglah sekarang dan rasakan pengalaman mu di SCPS Private Server!</p>
 
   <div class="status">Server Status: ONLINE</div>
 
