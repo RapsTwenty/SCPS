@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCPS Private Server</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    @keyframes rgbText {
+      0% { color: red; }
+      33% { color: lime; }
+      66% { color: deepskyblue; }
+      100% { color: red; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #121212);
       color: #fff;
+      text-align: center;
+      background-attachment: fixed;
+      background-size: cover;
       overflow-x: hidden;
     }
     header {
       position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       background: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 16px;
-      z-index: 1000;
+      padding: 10px 20px;
+      z-index: 999;
     }
-    .logo {
+    header img.logo {
       height: 40px;
     }
     .menu-icon {
       display: flex;
       flex-direction: column;
-      gap: 6px;
       cursor: pointer;
+      gap: 6px;
     }
     .menu-icon div {
       width: 25px;
       height: 3px;
-      background: #fff;
+      background: white;
+      border-radius: 2px;
     }
     nav {
       position: fixed;
@@ -46,138 +59,198 @@
       right: 20px;
       background: #111;
       padding: 20px;
+      border-radius: 10px;
       display: none;
       flex-direction: column;
       gap: 15px;
-      border-radius: 10px;
+      z-index: 998;
     }
     nav a {
       color: white;
       text-decoration: none;
+      font-size: 1rem;
     }
     nav a:hover {
       color: #ffcc00;
-    }
-    h1 {
-      font-size: 2rem;
-      text-align: center;
-      margin-top: 80px;
-      animation: rgbText 4s infinite;
-    }
-    @keyframes rgbText {
-      0% { color: red; }
-      33% { color: lime; }
-      66% { color: deepskyblue; }
-      100% { color: red; }
     }
     .divider {
       width: 100px;
       height: 3px;
       background: #00afff;
-      margin: 20px auto;
+      margin: 100px auto 20px;
+      border-radius: 2px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 80px;
+      animation: rgbText 4s infinite;
     }
     p {
-      text-align: center;
+      font-size: 1.15rem;
       max-width: 700px;
-      margin: 0 auto 20px;
+      margin: 20px auto;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+    .banner {
+      margin: 30px auto 10px;
+      max-width: 100%;
     }
     .banner img {
       width: 100%;
       max-width: 800px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #000;
     }
     .status {
-      display: inline-block;
-      background: #0f0;
+      background: #00ff00;
       color: #000;
+      display: inline-block;
       padding: 10px 20px;
       border-radius: 8px;
-      margin: 40px auto;
       font-weight: bold;
+      margin: 40px 0;
     }
     .scroll-hint {
       display: flex;
       justify-content: space-between;
+      margin: 10px auto 50px;
       max-width: 800px;
-      margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 30px;
     }
     .scroll-hint img {
       width: 40px;
       height: 40px;
+      opacity: 0.5;
       animation: bounce 1.5s infinite;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-    .section {
-      max-width: 800px;
-      margin: 50px auto;
+    .link-box, .social-box {
+      margin: 60px auto;
       padding: 20px;
       background: rgba(31, 31, 31, 0.9);
       border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 1s ease-out;
     }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 20px;
+    .link-box.show, .social-box.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .link-box a, .social-box a {
       color: #00afff;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
     }
     pre {
-      background: #111;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
+      background: #121212;
+      padding: 15px;
       color: #0f0;
+      text-align: left;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      font-family: monospace;
+      position: relative;
     }
     .copy-btn {
-      float: right;
+      position: absolute;
+      top: 10px;
+      right: 10px;
       background: #00afff;
-      color: white;
-      padding: 5px 10px;
+      color: #fff;
       border: none;
+      padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
+    }
+    .how-to-play {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      margin-top: 60px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 1s ease-out;
+    }
+    .how-to-play.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .how-to-play h2 {
+      color: #00afff;
+      text-align: center;
+    }
+    .how-to-play h3 {
+      color: #00ff88;
+    }
+    .how-to-play ol {
+      padding-left: 20px;
+    }
+    .social-box h2 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+    .social-box h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: #ffcc00;
+      margin: 8px auto 0;
     }
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 30px;
+      margin-top: 15px;
     }
-    .social-icons img {
+    .social-icons a img {
       width: 40px;
       height: 40px;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
     }
     footer {
-      text-align: center;
+      background: #111;
+      padding: 20px;
       color: #aaa;
-      margin: 40px auto;
+      font-size: 0.9rem;
+      margin-top: 60px;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <img src="scps_banner.png" alt="SCPS Logo" class="logo">
     <div class="menu-icon" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
     <nav id="mobileMenu">
-      <a href="#top" onclick="toggleMenu()">Home</a>
-      <a href="#host" onclick="toggleMenu()">Host</a>
-      <a href="#how" onclick="toggleMenu()">How To Play</a>
-      <a href="#community" onclick="toggleMenu()">Community</a>
+      <a href="#top">Home</a>
+      <a href="#host">Host</a>
+      <a href="#how">How To Play</a>
+      <a href="#community">Community</a>
     </nav>
   </header>
 
   <h1 id="top">SCPS Private Server</h1>
   <div class="divider"></div>
-  <p>
-    Haloo Semuaanyaa! Selamat Datang Di <strong>SCPS Private Server!</strong><br />
-    Di Sini kalian bisa bermain <strong>Growtopia Versi Private</strong> dengan fitur-fitur menarik dan banyak <strong>Custom Item</strong>!<br />
-    Bergabunglah sekarang dan rasakan pengalaman mu di SCPS Private Server!
-  </p>
+
+  <p>Haloo Semuaanyaa! Selamat Datang Di <strong>SCPS Private Server!</strong><br>
+  Di Sini kalian bisa bermain <strong>Growtopia Versi Private</strong> dengan fitur-fitur menarik dan banyak <strong>Custom Item</strong>!<br>
+  Bergabunglah sekarang dan rasakan pengalaman mu di SCPS Private Server!</p>
 
   <div class="banner">
     <img src="scps_banner.png" alt="SCPS Banner">
@@ -186,53 +259,73 @@
   <div class="status">Server Status: ONLINE</div>
 
   <div class="scroll-hint">
-    <img src="scroll_4103173.png" alt="Scroll" />
-    <img src="scroll_4103173.png" alt="Scroll" />
+    <img src="scroll_4103173.png" alt="Scroll Icon">
+    <img src="scroll_4103173.png" alt="Scroll Icon">
   </div>
 
-  <div class="section" id="host">
-    <h2>HOST</h2>
+  <div class="link-box" id="host">
     <a href="https://www.mediafire.com/file/9visobna53k26c3/SCPS+HOST.txt/file" target="_blank">Download VHost File</a>
     <a href="https://growsoft.cc/android.txt" target="_blank">Copy Ptunnel (Android)</a>
     <a href="https://growsoft.cc/ios.txt" target="_blank">IOS Copy File</a>
-    <pre><button class="copy-btn" onclick="copyText()">Copy</button>
+    <h3>Copy ke Windows Host File:</h3>
+    <pre id="windows-ip">
 91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com
+<button class="copy-btn" onclick="copyText()">Copy</button>
     </pre>
   </div>
 
-  <div class="section" id="how">
+  <div class="how-to-play" id="how">
     <h2>How To Play</h2>
     <h3>Android</h3>
     <ol>
       <li>Download SCPS HOST.</li>
       <li>Buka aplikasi Virtual Host.</li>
-      <li>Klik "RE-SELECT HOSTS FILE" dan pilih file yang sudah didownload.</li>
+      <li>Klik "RE-SELECT HOSTS FILE".</li>
+      <li>Cari file SCPS HOST.txt yang sudah kamu download dan klik.</li>
       <li>Pastikan lingkaran menyala hijau.</li>
-      <li>Login ke Growtopia!</li>
+      <li>Sekarang kamu bisa login ke Growtopia!</li>
     </ol>
+    <p><strong>Name Server:</strong> SCPS</p>
+
     <h3>Windows</h3>
     <ol>
-      <li>Tekan Win+R, ketik: <code>C:\Windows\System32\drivers\etc</code></li>
-      <li>Edit file <code>hosts</code> dengan Notepad.</li>
-      <li>Tambahkan IP seperti di atas dan simpan.</li>
+      <li>Tekan ⊞ Win+R untuk membuka jendela "Run".</li>
+      <li>Ketik <code>C:\Windows\System32\drivers\etc</code>.</li>
+      <li>Temukan file bernama <code>hosts</code>.</li>
+      <li>Edit file "hosts" menggunakan Notepad.</li>
+      <li>Tambahkan IP di atas.</li>
+      <li>Simpan dan buka Growtopia.</li>
     </ol>
-    <h3>iOS</h3>
+    <p><strong>Name Server:</strong> SCPS</p>
+
+    <h3>IOS</h3>
     <ol>
-      <li>Download "Surge 5" dari App Store.</li>
-      <li>Import konfigurasi menggunakan URL dari file iOS Copy.</li>
-      <li>Aktifkan VPN dan buka Growtopia.</li>
+      <li>Unduh aplikasi "Surge 5" dari App Store.</li>
+      <li>Tekan "OK".</li>
+      <li>Klik "Default.conf".</li>
+      <li>Klik "IMPORT" > Download Profile from URL.</li>
+      <li>Masukkan URL dari tombol IOS host di atas lalu klik "OK" dan "Done".</li>
+      <li>Tekan "SETUP", lalu izinkan VPN configuration.</li>
+      <li>Buka Growtopia dan Connect!</li>
     </ol>
+    <p><strong>Name Server:</strong> SCPS</p>
   </div>
 
-  <div class="section" id="community">
-    <h2>SERVER COMMUNITY</h2>
+  <div class="social-box" id="community">
+    <h2>SERVER COMUNITY</h2>
     <div class="social-icons">
-      <a href="https://www.instagram.com/jaboy_gt" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
-      <a href="https://chat.whatsapp.com/IMobcruMhZgAWUI1tjZIJT" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
-      <a href="https://discord.gg/FChejVkZ" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"></a>
+      <a href="https://www.instagram.com/jaboy_gt?igsh=MTZnd3Z5NzNhZjFpdw%3D%3D&utm_source=qr" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://chat.whatsapp.com/IMobcruMhZgAWUI1tjZIJT" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+      <a href="https://discord.gg/FChejVkZ" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+      </a>
     </div>
   </div>
 
@@ -242,13 +335,28 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      const nav = document.getElementById('mobileMenu');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
     }
+
     function copyText() {
       const text = `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`;
-      navigator.clipboard.writeText(text).then(() => alert('Copied!'));
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+      });
     }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.link-box, .how-to-play, .social-box').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
