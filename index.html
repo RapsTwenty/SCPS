@@ -21,6 +21,7 @@
       text-align: center;
       background-attachment: fixed;
       background-size: cover;
+      overflow-x: hidden;
     }
     h1 {
       font-size: 3.5rem;
@@ -50,6 +51,13 @@
       border-radius: 10px;
       width: 80%;
       max-width: 600px;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 1s ease-out;
+    }
+    .link-box.show {
+      opacity: 1;
+      transform: translateX(0);
     }
     .link-box a {
       color: #00afff;
@@ -87,6 +95,13 @@
       margin-left: auto;
       margin-right: auto;
       border-radius: 12px;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 1s ease-out;
+    }
+    .how-to-play.show {
+      opacity: 1;
+      transform: translateX(0);
     }
     .how-to-play h2 {
       color: #00afff;
@@ -168,6 +183,19 @@
         alert("Copied to clipboard!");
       });
     }
+
+    // Scroll animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.link-box, .how-to-play').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
