@@ -12,6 +12,11 @@
       100% { color: red; }
     }
 
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -59,10 +64,22 @@
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: bold;
-      margin-bottom: 30px;
+      margin: 40px 0;
+    }
+    .scroll-hint {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px auto 50px;
+      max-width: 800px;
+      padding: 0 30px;
+    }
+    .scroll-hint span {
+      font-size: 2rem;
+      animation: bounce 1.5s infinite;
+      opacity: 0.6;
     }
     .link-box, .social-box {
-      margin: 30px auto;
+      margin: 60px auto;
       padding: 20px;
       background: rgba(31, 31, 31, 0.9);
       border-radius: 10px;
@@ -179,6 +196,11 @@
   </div>
 
   <div class="status">Server Status: ONLINE</div>
+
+  <div class="scroll-hint">
+    <span>⬇</span>
+    <span>⬇</span>
+  </div>
 
   <div class="link-box">
     <a href="https://www.mediafire.com/file/9visobna53k26c3/SCPS+HOST.txt/file" target="_blank">Download VHost File</a>
